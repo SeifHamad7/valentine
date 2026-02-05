@@ -84,21 +84,26 @@ button{
 
 <script>
 
-let step=0;
-let yesSize=1;
+// ✅ FIXED VARIABLES
+let title = document.getElementById("title");
+let text = document.getElementById("text");
+let buttons = document.getElementById("buttons");
+
+let step = 0;
+let yesSize = 1;
 
 function next(){
-  if(step==0){
+  if(step === 0){
     title.innerText="You mean a lot to me 🥺";
     text.innerText="More than you can imagine...";
     step++;
   }
-  else if(step==1){
+  else if(step === 1){
     title.innerText="You make me smile 😊";
     text.innerText="Every single day";
     step++;
   }
-  else if(step==2){
+  else if(step === 2){
     title.innerText="So I want to ask...";
     text.innerText="Something special 💖";
     step++;
@@ -115,8 +120,8 @@ function next(){
 
 function noClick(){
   yesSize += 0.3;
-  document.getElementById("yesBtn")
-    .style.transform = "scale("+yesSize+")";
+  document.getElementById("yesBtn").style.transform =
+    "scale(" + yesSize + ")";
 }
 
 function yesClick(){
@@ -129,9 +134,9 @@ function yesClick(){
 
 function startHearts(){
   setInterval(()=>{
-    let h=document.createElement("div");
+    let h = document.createElement("div");
     h.className="heart";
-    h.innerHTML = Math.random()>0.5 ? "❤️" ;
+    h.innerHTML="❤️";
     h.style.left=Math.random()*100+"vw";
     h.style.fontSize=(20+Math.random()*25)+"px";
     document.body.appendChild(h);
@@ -143,5 +148,6 @@ function startHearts(){
 
 </body>
 </html>
+
 
 
