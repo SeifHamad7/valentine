@@ -1,58 +1,140 @@
-<script>
-let step = 0;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Gana ❤️</title>
 
-const title = document.getElementById("title");
-const text = document.getElementById("text");
-const buttons = document.getElementById("buttons");
+<style>
+body{
+  background: linear-gradient(135deg,#ff758c,#ff7eb3);
+  font-family: Arial, sans-serif;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+  overflow:hidden;
+}
+
+.container{
+  background: rgba(255,255,255,0.15);
+  padding:40px;
+  border-radius:20px;
+  width:320px;
+  animation: fade 1s;
+}
+
+@keyframes fade{
+  from{opacity:0; transform:scale(0.9);}
+  to{opacity:1; transform:scale(1);}
+}
+
+h1{font-size:26px;}
+p{font-size:18px;}
+
+button{
+  padding:12px 25px;
+  border:none;
+  border-radius:25px;
+  font-size:16px;
+  cursor:pointer;
+  margin:10px;
+  transition:0.3s;
+}
+
+#yesBtn{
+  background:white;
+  color:#ff4d6d;
+}
+
+#noBtn{
+  background:#ffd1dc;
+  color:#ff4d6d;
+}
+
+.heart{
+  position:absolute;
+  bottom:-20px;
+  font-size:22px;
+  animation: floatUp 5s linear infinite;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(0);opacity:1;}
+  to{transform:translateY(-100vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="box">
+  <h1 id="title">Hey Gana ❤️</h1>
+  <p id="text">I have something important to tell you...</p>
+  <div id="buttons">
+    <button onclick="next()">Next</button>
+  </div>
+</div>
+
+<script>
+
+let step=0;
+let yesSize=1;
 
 function next(){
-  if(step === 0){
-    title.innerText = "You mean a lot to me, Jana 💕";
-    text.innerText = "More than you can imagine...";
+  if(step==0){
+    title.innerText="You mean a lot to me 🥺";
+    text.innerText="More than you can imagine...";
     step++;
   }
-  else if(step === 1){
-    title.innerText = "You make me smile";
-    text.innerText = "Every single day 😊";
+  else if(step==1){
+    title.innerText="You make me smile 😊";
+    text.innerText="Every single day";
     step++;
   }
-  else if(step === 2){
-    title.innerText = "So I wanted to ask...";
-    text.innerText = "Something special 💖";
+  else if(step==2){
+    title.innerText="So I want to ask...";
+    text.innerText="Something special 💖";
     step++;
   }
   else{
-    title.innerText = "Will you be my Valentine, Jana? ❤️";
-    text.innerText = "";
-    buttons.innerHTML = `
-      <button onclick="yesClick()">Yes ❤️</button>
-      <button onclick="noClick()">No 💔</button>
+    title.innerText="Will you be my Valentine, Gana? ❤️";
+    text.innerText="";
+    buttons.innerHTML=`
+      <button id="yesBtn" onclick="yesClick()">Yes ❤️</button>
+      <button id="noBtn" onclick="noClick()">No 💔</button>
     `;
   }
 }
 
-function yesClick(){
-  title.innerText = "YAY! 😍";
-  text.innerText = "I Love You Jana ❤️❤️❤️";
-  buttons.innerHTML = "";
-  startHearts();
+function noClick(){
+  yesSize += 0.3;
+  document.getElementById("yesBtn")
+    .style.transform = "scale("+yesSize+")";
 }
 
-function noClick(){
-  title.innerText = "😴";
-  text.innerText = "Ed5oli Namy 😅";
-  buttons.innerHTML = "";
+function yesClick(){
+  title.innerText="I knew you'd say yes! 😍";
+  text.innerText="I Love You Gana ❤️";
+  buttons.innerHTML="";
+  startHearts();
 }
 
 function startHearts(){
   setInterval(()=>{
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "❤️";
-    heart.style.left = Math.random()*100 + "vw";
-    heart.style.fontSize = (20 + Math.random()*20) + "px";
-    document.body.appendChild(heart);
-    setTimeout(()=>heart.remove(),5000);
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML = Math.random()>0.5 ? "❤️" : "💑";
+    h.style.left=Math.random()*100+"vw";
+    h.style.fontSize=(20+Math.random()*25)+"px";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),5000);
   },300);
 }
+
 </script>
+
+</body>
+</html>
+
