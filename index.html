@@ -131,7 +131,7 @@ function startHearts(){
   setInterval(()=>{
     let h=document.createElement("div");
     h.className="heart";
-    h.innerHTML = Math.random()>0.5 ? "❤️" : "💑";
+    h.innerHTML = Math.random()>0.5 ? "❤️" ;
     h.style.left=Math.random()*100+"vw";
     h.style.fontSize=(20+Math.random()*25)+"px";
     document.body.appendChild(h);
