@@ -69,7 +69,12 @@ button{
 
 <body>
 
-<div class="container" id="box">
+<!-- 🎵 MUSIC -->
+<audio id="loveSong">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
   <h1 id="title">Hey Gana ❤️</h1>
   <p id="text">I have something important to tell you...</p>
   <div id="buttons">
@@ -118,6 +123,7 @@ function yesClick(){
   title.innerText="I knew you'd say yes! 😍";
   text.innerText="I Love You Gana ❤️";
   buttons.innerHTML="";
+  document.getElementById("loveSong").play();
   startHearts();
 }
 
@@ -137,4 +143,5 @@ function startHearts(){
 
 </body>
 </html>
+
 
